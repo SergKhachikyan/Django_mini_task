@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Бургеры & Шаурма</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+  <header>🍔 Бургеры и Шаурма</header>
+
+  <section class="menu">
+    {% for i in category_list %}
+      <div class="item">
+        <a href="{% url 'products' i.id %}"><img src="{{ i.image.url }}" alt="{{ i.name }}"></a>
+        <h2>{{ i.name }}</h2>
+        <p>{{ i.price }} ₽</p>
+      </div>
+    {% endfor %}
+  </section>
+
+  <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
